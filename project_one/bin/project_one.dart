@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:project_one/book.dart';
 import 'package:project_one/bookstore.dart';
 import 'package:project_one/purchase.dart';
@@ -24,6 +23,8 @@ void main(List<String> arguments) {
     print('5: Show purchases report');
     print('6: Modifiy a book from store');
     print('7: Display all books in store');
+    print('8: Display all books in store by categories');
+    print('9: Display all books in store by a category');
     print('q: Exit');
     print('--------------------------------');
 
@@ -49,12 +50,28 @@ void main(List<String> arguments) {
     if (selection == '7') {
       store.displayAll();
     }
+    if (selection == '8') {
+      store.displayByCategory();
+    }
+    if (selection == '9') {
+      print('');
+      print('===--------------------------------------------------===');
+      print('Please type the name of the category you want to diplay:');
+      print('===--------------------------------------------------===');
+      store.allCat();
+      selection = stdin.readLineSync();
+      selection = selection.toString().toLowerCase();
+      store.findBycategory(selection, true);
+    }
     if (selection == 'q') {
       exit(0);
     }
   }
 }
 
+/*
+  This function 
+*/
 void modifiy(Bookstore store) {
   dynamic selection;
   dynamic modfication;
@@ -322,7 +339,7 @@ void findbook(Bookstore store) {
       print('===--------------------------------===');
       selection = stdin.readLineSync();
       selection = selection.toString().toLowerCase();
-      store.findBycategory(selection);
+      store.findBycategory(selection, false);
       return;
     }
     if (selection == 'r') {
