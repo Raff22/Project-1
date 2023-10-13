@@ -191,8 +191,8 @@ void purchase(Bookstore store, Cart cart) {
   if (selection == 'r') {
     return;
   }
-  cart.addTocart(store, selection);
   store.purchase(selection);
+  cart.addTocart(store, selection);
 }
 
 void removebook(Bookstore store) {
