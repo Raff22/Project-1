@@ -8,23 +8,24 @@ void main(List<String> arguments) {
   Bookstore store = Bookstore();
   Cart cart = Cart();
   print('');
-  print('Welcome to bookstore');
+  print('====================================================================');
+  print('==================== WELCOME TO BOOKSTORE ==========================');
+  print('====================================================================');
   dynamic selection = 0;
   while (true) {
-    print('----------------------------');
-    print('Please select from the menu:');
     print('');
-    print('1: find a book');
-    print('2: add new book to store');
-    print('3: remove book from store');
-    print('4: purchase book from store');
-    print('5: show purchase from store');
-    print('6: modifiy book from store');
-    print('7: display all books from store');
-    print('q: exit');
-    print('');
-    print('----------------------------');
-    print('');
+    print('********************************');
+    print('* Please select from the menu: *');
+    print('********************************');
+    print('1: Find a book');
+    print('2: Add a book to store');
+    print('3: Remove a book from store');
+    print('4: Purchase a book from store');
+    print('5: Show purchases report');
+    print('6: Modifiy a book from store');
+    print('7: Display all books in store');
+    print('q: Exit');
+    print('--------------------------------');
 
     selection = stdin.readLineSync();
     if (selection == '1') {
@@ -60,30 +61,42 @@ void modifiy(Bookstore store) {
   String title;
   String change = 't';
   dynamic value;
+  print('');
+  print('========--------------------------------------=========');
   print('Please enter the title of the book you want to modifiy:');
+  print('========--------------------------------------=========');
   selection = stdin.readLineSync();
   title = selection.toString().toLowerCase();
   while (true) {
     print('');
+    print('========----------------------------=========');
     print('Please select the section you want to modifiy:');
-    print('========----------------------------========');
+    print('========----------------------------=========');
     print('1) Title');
     print('2) Author');
     print('3) Category');
     print('4) Publisher');
     print('5) Price');
     print('6) Number of copies');
+    print('r) Return to main menu');
+    print('========----------------------------=========');
     print('');
     selection = stdin.readLineSync();
     if (selection == '1') {
+      print('');
+      print('===-----------------===');
       print('Please enter new title:');
+      print('===-----------------===');
       modfication = stdin.readLineSync();
       value = modfication.toString();
       store.editBook(title, change, value);
       return;
     }
     if (selection == '2') {
+      print('');
+      print('===-----------------===');
       print('Please enter new author');
+      print('===-----------------===');
       modfication = stdin.readLineSync();
       value = modfication.toString();
       change = 'a';
@@ -92,14 +105,20 @@ void modifiy(Bookstore store) {
     }
     if (selection == '3') {
       change = 'c';
+      print('');
+      print('===-------------------===');
       print('Please enter new category:');
+      print('===-------------------===');
       modfication = stdin.readLineSync();
       value = modfication.toString();
       store.editBook(title, change, value);
       return;
     }
     if (selection == '4') {
+      print('');
+      print('===--------------------===');
       print('Please enter new publisher:');
+      print('===--------------------===');
       modfication = stdin.readLineSync();
       value = modfication.toString();
       change = 'p';
@@ -112,7 +131,10 @@ void modifiy(Bookstore store) {
     if (selection == '5') {
       change = 'pr';
       while (true) {
+        print('');
+        print('===------------------===');
         print('Please enter new price:');
+        print('===------------------===');
         modfication = stdin.readLineSync();
         value = modfication.toString();
         if (value == "") {
@@ -123,7 +145,10 @@ void modifiy(Bookstore store) {
           value = double.parse(value);
           break;
         } catch (error) {
-          print('please enter valid price');
+          print('');
+          print('!!!!!!!!!!!!!!!!!!!');
+          print('! INPUT NOT VALID !');
+          print('!!!!!!!!!!!!!!!!!!!');
         }
       }
       store.editBook(title, change, value);
@@ -132,16 +157,25 @@ void modifiy(Bookstore store) {
     if (selection == '6') {
       change = 'cpy';
       while (true) {
+        print('');
+        print('===---------------------------===');
         print('Please enter new number of copies:');
+        print('===---------------------------===');
         modfication = stdin.readLineSync();
         try {
           value = int.parse(modfication);
           break;
         } catch (error) {
-          print('Please enter a valid number of copies');
+          print('');
+          print('!!!!!!!!!!!!!!!!!!!');
+          print('! INPUT NOT VALID !');
+          print('!!!!!!!!!!!!!!!!!!!');
         }
       }
       store.editBook(title, change, value);
+      return;
+    }
+    if (selection == 'r') {
       return;
     }
   }
@@ -149,31 +183,29 @@ void modifiy(Bookstore store) {
 
 void purchase(Bookstore store, Cart cart) {
   dynamic selection;
-  dynamic selectionA;
+  print('');
+  print('===--------------------------------------------------===');
   print('Please enter the title of the book you want to purchase:');
-  selection = stdin.readLineSync().toString().toLowerCase();
-  print('Please enter the Author of the book you want to purchase:');
-  selectionA = stdin.readLineSync().toString().toLowerCase();
-  store.purchase(selection, selectionA);
-  cart.addTocart(store, selection, selectionA);
+  print('===--------------------------------------------------===');
+  selection = stdin.readLineSync().toString();
+  if (selection == 'r') {
+    return;
+  }
+  cart.addTocart(store, selection);
+  store.purchase(selection);
 }
 
 void removebook(Bookstore store) {
   dynamic selection = 0;
-  String t = "";
-  String a = "";
-  String c = "";
+  print('');
+  print('===----------------------------------===');
   print('Please enter book title:');
-  selection = stdin.readLineSync();
-  t = selection.toString();
-  print('Please enter book author:');
-  selection = stdin.readLineSync();
-  a = selection.toString();
-  print('Please enter book category:');
-  selection = stdin.readLineSync();
-  c = selection.toString();
-  Book b = store.createBook(t, a, c, null, null);
-  store.deleteBook(b);
+  print('===----------------------------------===');
+  selection = stdin.readLineSync().toString();
+  if (selection == 'r') {
+    return;
+  }
+  store.deleteBook(selection);
 }
 
 void addbook(Bookstore store) {
@@ -183,25 +215,55 @@ void addbook(Bookstore store) {
   String c = "";
   String? p;
   double? pr;
+  print('');
+  print('===-------------------===');
   print('Please enter book title:');
+  print('===-------------------===');
   selection = stdin.readLineSync();
+  if (selection == 'r') {
+    return;
+  }
   t = selection.toString();
+  print('');
+  print('===-------------------===');
   print('Please enter book author:');
+  print('===-------------------===');
   selection = stdin.readLineSync();
+  if (selection == 'r') {
+    return;
+  }
   a = selection.toString();
+  print('');
+  print('===--------------------===');
   print('Please enter book category:');
+  print('===--------------------===');
   selection = stdin.readLineSync();
+  if (selection == 'r') {
+    return;
+  }
   c = selection.toString();
+  print('');
+  print('===------------------------------------------------===');
   print('Please enter book publisher or hit enter if not known:');
+  print('===------------------------------------------------===');
   selection = stdin.readLineSync();
+  if (selection == 'r') {
+    return;
+  }
   p = selection.toString();
   if (p == "") {
     p = null;
   }
+  print('');
+  print('===---------------------------------------------===');
   print('Please enter book price or hit enter if not known:');
+  print('===---------------------------------------------===');
   while (true) {
     selection = stdin.readLineSync();
     selection = selection.toString();
+    if (selection == 'r') {
+      return;
+    }
     if (selection == "") {
       pr = null;
       break;
@@ -215,33 +277,49 @@ void addbook(Bookstore store) {
   }
   Book b = store.createBook(t, a, c, p, pr);
   store.addTostore(b);
+  print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
+  print('               The book was added sucessfully! ');
+  print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
 }
 
 void findbook(Bookstore store) {
   dynamic selection = 0;
   while (true) {
+    print('');
+    print('===---------------------------===');
     print('Please select from the following:');
+    print('===---------------------------===');
     print('1: find by title');
     print('2: find by author');
     print('3: find by category');
     print('r: return to main menue');
+    print('---------------------------------');
     selection = stdin.readLineSync();
     if (selection == '1') {
+      print('');
+      print('===----------------------------===');
       print('Please enter the title of the book:');
+      print('===----------------------------===');
       selection = stdin.readLineSync();
       selection = selection.toString().toLowerCase();
       store.findBytitle(selection);
       return;
     }
     if (selection == '2') {
+      print('');
+      print('===------------------------------===');
       print('Please enter the author of the book:');
+      print('===------------------------------===');
       selection = stdin.readLineSync();
       selection = selection.toString().toLowerCase();
       store.findByauthor(selection);
       return;
     }
     if (selection == '3') {
+      print('');
+      print('===--------------------------------===');
       print('Please enter the category of the book:');
+      print('===--------------------------------===');
       selection = stdin.readLineSync();
       selection = selection.toString().toLowerCase();
       store.findBycategory(selection);
