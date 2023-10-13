@@ -79,7 +79,7 @@ void modifiy(Bookstore store) {
     print('5) Price');
     print('6) Number of copies');
     print('r) Return to main menu');
-    print('========----------------------------=========');
+    print('---------------------------------------------');
     print('');
     selection = stdin.readLineSync();
     if (selection == '1') {
@@ -276,10 +276,10 @@ void addbook(Bookstore store) {
     }
   }
   Book b = store.createBook(t, a, c, p, pr);
-  store.addTostore(b);
   print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
   print('               The book was added sucessfully! ');
   print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
+  store.addTostore(b, true);
 }
 
 void findbook(Bookstore store) {
