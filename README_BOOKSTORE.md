@@ -49,10 +49,30 @@ if the book user inserted not in store
 
 <img width="632" alt="nonexistantremove" src="https://github.com/Raff22/Project-1/assets/86999942/2d70a9aa-1475-476f-9d8f-2a61ec52285c">
 
-
-
 * Purchase a book from store:
+
+If the user enters "4" to purchase an existing book, the program asks the user for book title and the following will display
+
+<img width="661" alt="Screenshot 2023-10-14 at 1 34 46 PM" src="https://github.com/Raff22/Project-1/assets/86999942/05efc3ea-66c4-4f53-aab4-d5321b043f55">
+
+If the book the user is trying to purchase does not exist in store, the following will display
+
+<img width="583" alt="Screenshot 2023-10-14 at 1 47 20 PM" src="https://github.com/Raff22/Project-1/assets/86999942/8b0641cb-e01a-430b-bfb6-f91b2cbce72d">
+
+
+If the book the user is trying to purchase do exist in store, but no available copies in store, the following will display. 
+NOTE: I updated number of copies to zero for this example.
+
+<img width="616" alt="Screenshot 2023-10-14 at 1 40 53 PM" src="https://github.com/Raff22/Project-1/assets/86999942/26f7992d-77e4-4aca-8c46-b93760942a2b">
+
+
 * Show purchases report:
+
+this method display a report the user purchases and total of their purchase.
+
+<img width="640" alt="Screenshot 2023-10-14 at 1 57 09 PM" src="https://github.com/Raff22/Project-1/assets/86999942/1aa0f9bb-0f6e-4eb1-8f67-4ebb2ba63d8a">
+
+
 * Modifiy a book from store:
 * Display all books in store:
 * Display all books in store by categories:
