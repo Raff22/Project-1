@@ -74,16 +74,37 @@ this method display a report the user purchases and total of their purchase.
 
 
 * Modifiy a book from store:
+
+If the user enters "6" then they are asked for the book they want to modifey and what information of the book they want to update. The program then update book and display the update. if the book the user want to modifiy does not exist then a message will appear as for previous cases.
+
+<img width="815" alt="Screenshot 2023-10-14 at 1 41 45 PM" src="https://github.com/Raff22/Project-1/assets/86999942/78687c79-7297-405e-8746-2d698c7cf3ee">
+
 * Display all books in store:
-* Display all books in store by categories:
-* Display all books in store by a category:
+
+this option "7" display all available books as follows
+
+<img width="597" alt="Screenshot 2023-10-14 at 2 54 06 PM" src="https://github.com/Raff22/Project-1/assets/86999942/b3e9ffa7-9097-466d-be5e-a0b92eab2569">
+
+
   
+* Display all books in store by categories:
 
+like previously this option is a way to show books in store. However, now the user can navigate books by categories and see how many books available in each category.
 
+<img width="638" alt="Screenshot 2023-10-14 at 2 48 54 PM" src="https://github.com/Raff22/Project-1/assets/86999942/de88b017-7f10-4964-8426-24f4c15f777b">
 
+* Display all books in store by a category:
 
+  This option "9" allow user to choose the category they want to display by promoting to the categorey. If they enter a non-existant categorey a notifying message will appear.
+
+  <img width="772" alt="Screenshot 2023-10-14 at 2 55 57 PM" src="https://github.com/Raff22/Project-1/assets/86999942/5a8a4045-b76a-41b7-945a-38950e33896c">
 
 ## Handling errors
+* Try catch
+* converting to lowercase
+* condtions
+* repromoting when user insert invalid input
+
 ## Authors
 Raffal Abu Eshey
 
