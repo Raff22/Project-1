@@ -75,9 +75,6 @@ void main(List<String> arguments) {
   }
 }
 
-/*
-  This function 
-*/
 void modifiy(Bookstore store) {
   dynamic selection;
   dynamic modfication;
@@ -264,7 +261,7 @@ void addbook(Bookstore store) {
   if (selection == 'r') {
     return;
   }
-  c = selection.toString();
+  c = selection.toString().toLowerCase();
   print('');
   print('===------------------------------------------------===');
   print('Please enter book publisher or hit enter if not known:');
