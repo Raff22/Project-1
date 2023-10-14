@@ -1,3 +1,9 @@
+/*
+  Program: project_one.dart
+  Author: Raffal Abu Eshey
+  Description: This program run a CLI program that mimic a bookstore.
+*/
+
 import 'dart:io';
 import 'package:project_one/book.dart';
 import 'package:project_one/bookstore.dart';
@@ -8,14 +14,14 @@ void main(List<String> arguments) {
   Cart cart = Cart();
   print('');
   print('====================================================================');
-  print('==================== WELCOME TO BOOKSTORE ==========================');
+  print('                     WELCOME TO BOOKSTORE                           ');
   print('====================================================================');
   dynamic selection = 0;
   while (true) {
     print('');
-    print('********************************');
-    print('* Please select from the menu: *');
-    print('********************************');
+    print('********************************************');
+    print('       Please select from the menu:  ');
+    print('********************************************');
     print('1: Find a book');
     print('2: Add a book to store');
     print('3: Remove a book from store');
@@ -25,8 +31,8 @@ void main(List<String> arguments) {
     print('7: Display all books in store');
     print('8: Display all books in store by categories');
     print('9: Display all books in store by a category');
-    print('q: Exit');
-    print('--------------------------------');
+    print('q: Exit store');
+    print('--------------------------------------------');
 
     selection = stdin.readLineSync();
     if (selection == '1') {
@@ -111,9 +117,9 @@ void modifiy(Bookstore store) {
     }
     if (selection == '2') {
       print('');
-      print('===-----------------===');
-      print('Please enter new author');
-      print('===-----------------===');
+      print('===------------------===');
+      print('Please enter new author:');
+      print('===------------------===');
       modfication = stdin.readLineSync();
       value = modfication.toString();
       change = 'a';
@@ -215,9 +221,9 @@ void purchase(Bookstore store, Cart cart) {
 void removebook(Bookstore store) {
   dynamic selection = 0;
   print('');
-  print('===----------------------------------===');
-  print('Please enter book title:');
-  print('===----------------------------------===');
+  print('===------------------------------------------------===');
+  print('Please enter the title of the book you want to remove:');
+  print('===------------------------------------------------===');
   selection = stdin.readLineSync().toString();
   if (selection == 'r') {
     return;
